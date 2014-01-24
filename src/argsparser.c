@@ -41,7 +41,7 @@ int process_arguments(int argc, char **argv)
 	int long_opt_index = 0;
 	char bssid[MAC_ADDR_LEN] = { 0 };
 	char mac[MAC_ADDR_LEN] = { 0 };
-	char *short_options = "b:e:m:i:t:d:c:T:x:r:g:l:o:p:s:C:aA5ELfnqvDShwNM";
+	char *short_options = "b:e:m:i:t:d:c:T:x:r:g:l:o:p:s:C:aA5ELfnqvDShwNMj";
 	struct option long_options[] = {
 		{ "interface", required_argument, NULL, 'i' },
 		{ "bssid", required_argument, NULL, 'b' },
@@ -72,6 +72,7 @@ int process_arguments(int argc, char **argv)
 		{ "quiet", no_argument, NULL, 'q' },
 		{ "verbose", no_argument, NULL, 'v' },
 		{ "win7", no_argument, NULL, 'w' },
+		{ "try-default-pin", no_argument, NULL, 'j' },
 		{ "help", no_argument, NULL, 'h' },
 		{ "mac-changer", no_argument, NULL, 'M' },
 		{ 0, 0, 0, 0 }
@@ -176,6 +177,8 @@ int process_arguments(int argc, char **argv)
 				break;
 			case 'M':
 				set_mac_changer(1);
+			case 'j':
+				set_try_default_pin(1);
 				break;
                         default:
                                 ret_val = EXIT_FAILURE;

@@ -177,6 +177,7 @@ int usage(char *prog_name)
         fprintf(stderr, "\t-n, --nack                      Target AP always sends a NACK [Auto]\n");
 	fprintf(stderr, "\t-w, --win7                      Mimic a Windows 7 registrar [False]\n");
 	fprintf(stderr, "\t-M, --mac-changer               Change the last digit of the MAC Address for each pin try [False]\n");
+	fprintf(stderr, "\t-j, --try-default-pin           Try the possible default pin (hex to dec conversion) [False]\n");
 
         fprintf(stderr, "\nExample:\n\t%s -i mon0 -b 00:90:4C:C1:AC:21 -vv\n\n", prog_name);
 

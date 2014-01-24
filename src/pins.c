@@ -55,6 +55,40 @@ char *build_wps_pin()
                 free(key);
         }
 
+        if(get_try_default_pin())
+        {
+                int default_pin;
+                char *bssid = mac2str(get_bssid(), ':');
+                char *bssid_copy = (char *)malloc(strlen(bssid) + 1);
+                char *bssid_parts, temp[7] = { 0 };
+
+                strcpy(bssid_copy, bssid);
+
+                bssid_parts = strtok(bssid_copy, ":");
+
+                int i = 0;
+
+                while(bssid_parts)
+                {
+                        if(i > 2)
+                        {
+                                strcat(temp, bssid_parts);
+                        }
+
+                        bssid_parts = strtok(NULL, ":");
+
+                        ++i;
+                }
+
+                temp[6] = '\0';
+
+                sscanf(temp, "%x", &default_pin);
+
+                default_pin = default_pin % 10000000;
+
+                snprintf(pin, pin_len, "%08d", (default_pin * 10) + wps_pin_checksum(default_pin));
+        }
+
         return pin;
 }
 

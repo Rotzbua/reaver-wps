@@ -484,6 +484,16 @@ int get_win7_compat(void)
 	return globule->win7_compat;
 }
 
+void set_try_default_pin(int value)
+{
+	globule->try_default_pin = value;
+}
+
+int get_try_default_pin(void)
+{
+	return globule->try_default_pin;
+}
+
 void set_dh_small(int value)
 {
 	globule->dh_small = value;
