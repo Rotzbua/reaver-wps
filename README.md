@@ -143,6 +143,11 @@ Before using reaver tool, just type "sh associate.sh". To kill all the aireplay-
 
 If you have success using this method, please, share with us to improve more and more the reaver WPS.
 
+Added by kib0rg
+==============
+implemented option (-j or --try-default-pin) to try possible default pin via MAC conversion from hex to dec
+-j, --try-default-pin Try the possible default pin (hex to dec conversion) [False]
+
 Author
 ==============
 
